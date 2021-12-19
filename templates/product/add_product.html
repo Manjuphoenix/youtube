@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'nav_bar.html' %}
+    <div class="container">
+        <h4>New product</h4><br>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group row upload">
+            <label class="col-sm-2 form-label">Title</label>
+            <div class="mb-3 col-sm-8">
+                <input type="text" class="form-control" name="title" placeholder="Title">
+            </div>
+        </div>
+        <br>
+        <div class="form-group row upload">
+            <label for="description" class="col-sm-2 form-label">Description</label>
+            <div class="col-sm-8">
+                {#                <input type="text" class="form-control" name="{{ form.description.name }}" placeholder="Description">#}
+                <textarea class="form-control" name="description" placeholder="Message" rows="5"></textarea>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-12">
+            <label for="Product" class="col-sm-2">Product</label>
+            <select name="{{ form.type.name }}" id="{{ form.type.id_for_label }}"
+                    class="d-inline-flex p-2 col-sm-4 mx-auto">
+                <option value="Artifact">Artifact</option>
+                <option value="Wallpaper">Wallpaper</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-label">File input</label>
+            <input type="file" class="form-control-file" name="image">
+        </div>
+        <br>
+        <br>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary" value="save">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

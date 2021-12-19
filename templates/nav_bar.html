@@ -1,0 +1,12 @@
+{% load static %}
+{% block content %}
+    <br>
+    <a data-role="button" href="{% url 'products:list_product' %}">
+        <img src="{% static "img/mb-logo-grey.png" %}" alt="" height="34"
+             class="d-inline-block align-text-top col px-md-3">
+    </a>
+        <section class="d-lg-flex align-items-end align-content-end justify-content-lg-end contact-clean">
+        <a class="btn px-md-3 btn-dark" data-role="button" href="{% url 'logout' %}">Logout</a>
+    </section>
+    </div><br>
+{% endblock %}
